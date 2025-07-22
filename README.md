@@ -16,3 +16,28 @@ The Insall the ArgoCD with manifest.yml file here with the command here
 
 ```bash
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+
+Some important commands to get the pods, service and secret details of the argocd in the namespace argocd
+```bash
+kubectl get pods -n argocd
+
+```bash
+kubectl get svc -n argocd
+
+```bash
+kubectl get secret -n argocd
+
+To do the port forward in order to access from our local host here with the mapping of local host:127.0.0.1 with any port like 8080 to the argocd-server service port 443 here,  the command is
+```bash
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+Also here we want to access this in our local host like ArgoC UI with the url: https://localhost:8080
+
+The username is deafult admin and password you can get from this command and want to decode base64 from the google or any terminal as base64 decode is not available in the local cmd here
+
+The command to get the decode password is
+
+```bash
+kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" 
+
