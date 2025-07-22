@@ -16,7 +16,7 @@ The Insall the ArgoCD with manifest.yml file here with the command here
 
 ```bash
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-
+```
 
 Some important commands to get the pods, service and secret details of the argocd in the namespace argocd
 ```bash
